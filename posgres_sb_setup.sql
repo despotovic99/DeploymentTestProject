@@ -1,33 +1,37 @@
-/*drop database if exists test_db;
-create database test_db;*/
+DROP SCHEMA IF EXISTS test_schema;
+CREATE SCHEMA test_schema;
 
-SET session_replication_role = 'replica';
-drop schema if exists test_schema cascade;
-SET session_replication_role = 'origin';
+DROP TABLE IF EXISTS test_schema.test_tabela;
+DROP TABLE IF EXISTS test_schema.test_tabela1;
+DROP TABLE IF EXISTS test_schema.sistemska;
 
-create schema if not exists test_schema;
-
-drop table if exists test_schema.test_tabela;
-create table test_schema.test_tabela
-(
-    id       serial     primary key,
-    testname  varchar(255)      not null,
-    testvalue integer default 1 not null
+CREATE TABLE test_schema.test_tabela (
+                                         id SERIAL PRIMARY KEY,
+                                         testname VARCHAR(255) NULL,
+                                         testvalue INT NOT NULL DEFAULT 1
 );
 
-drop table if exists test_schema.test_tabela1;
-create table test_schema.test_tabela1
-(
-    id       serial     primary key,
-    testname  varchar(255)      not null,
-    testvalue integer default 1 not null
+CREATE TABLE test_schema.test_tabela1 (
+                                          id SERIAL PRIMARY KEY,
+                                          testname VARCHAR(255) NULL,
+                                          testvalue INT NOT NULL DEFAULT 1
 );
 
-drop table if exists test_schema.sistemska;
-create table  test_schema.sistemska
-(
-    id    serial primary key,
-    testname  varchar(255)      not null,
-    testvalue integer default 1 not null
+CREATE TABLE test_schema.sistemska (
+                                       id SERIAL PRIMARY KEY,
+                                       testname VARCHAR(255) NULL,
+                                       testvalue INT NOT NULL DEFAULT 1
 );
-insert into test_schema.sistemska (testname,testvalue) values ('test_sistemska',13)
+
+INSERT INTO test_schema.sistemska (testname, testvalue) VALUES ('test_sistemska', 12);
+
+CREATE TABLE test_schema.sistemska_druga (
+                                             id SERIAL PRIMARY KEY,
+                                             testname VARCHAR(255) NULL,
+                                             testvalue INT NOT NULL DEFAULT 1
+);
+
+INSERT INTO test_schema.sistemska_druga (testname, testvalue) VALUES ('test_sistemska_druga', 12);
+INSERT INTO test_schema.sistemska_druga (testname, testvalue) VALUES ('test_vrednost13', 13);
+INSERT INTO test_schema.sistemska_druga (testname, testvalue) VALUES ('test_vrednost14', 14);
+INSERT INTO test_schema.sistemska_druga (testname, testvalue) VALUES ('test_vrednost15', 15);

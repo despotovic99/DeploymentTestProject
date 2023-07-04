@@ -18,7 +18,7 @@ services:
       - deployment-network
 
   postgres-db:
-    image: postgres
+    image: postgres:14
     restart: always
     container_name: deployment-postgres
     ports:
