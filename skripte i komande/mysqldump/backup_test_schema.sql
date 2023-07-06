@@ -22,12 +22,11 @@
 DROP TABLE IF EXISTS `sistemska`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `sistemska`
-(
-    `id`        int(11) NOT NULL AUTO_INCREMENT,
-    `testname`  varchar(255) DEFAULT NULL,
-    `testvalue` int(11) NOT NULL DEFAULT 1,
-    PRIMARY KEY (`id`)
+CREATE TABLE `sistemska` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `testname` varchar(255) DEFAULT NULL,
+  `testvalue` int(11) NOT NULL DEFAULT 1,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -35,15 +34,11 @@ CREATE TABLE `sistemska`
 -- Dumping data for table `sistemska`
 --
 
-LOCK
-TABLES `sistemska` WRITE;
+LOCK TABLES `sistemska` WRITE;
 /*!40000 ALTER TABLE `sistemska` DISABLE KEYS */;
-INSERT INTO `sistemska`
-VALUES (1, 'test_sistemska', 12),
-       (2, 'test_sistemska_druga', 12);
+INSERT INTO `sistemska` VALUES (1,'test_sistemska',12),(2,'test_sistemska_druga',12);
 /*!40000 ALTER TABLE `sistemska` ENABLE KEYS */;
-UNLOCK
-TABLES;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `sistemska_druga`
@@ -52,12 +47,11 @@ TABLES;
 DROP TABLE IF EXISTS `sistemska_druga`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `sistemska_druga`
-(
-    `id`        int(11) NOT NULL AUTO_INCREMENT,
-    `testname`  varchar(255) DEFAULT NULL,
-    `testvalue` int(11) NOT NULL DEFAULT 1,
-    PRIMARY KEY (`id`)
+CREATE TABLE `sistemska_druga` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `testname` varchar(255) DEFAULT NULL,
+  `testvalue` int(11) NOT NULL DEFAULT 1,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -65,12 +59,10 @@ CREATE TABLE `sistemska_druga`
 -- Dumping data for table `sistemska_druga`
 --
 
-LOCK
-TABLES `sistemska_druga` WRITE;
+LOCK TABLES `sistemska_druga` WRITE;
 /*!40000 ALTER TABLE `sistemska_druga` DISABLE KEYS */;
 /*!40000 ALTER TABLE `sistemska_druga` ENABLE KEYS */;
-UNLOCK
-TABLES;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
