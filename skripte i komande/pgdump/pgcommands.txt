@@ -1,0 +1,17 @@
+CREATE baze: CREATE DATABASE test_baza_za_brisanje;
+
+DROP baze: DROP DATABASE IF EXISTS test_baza_za_brisanje WITH (FORCE);
+
+Izlistaj sve baze: SELECT datname FROM pg_database WHERE datistemplate = false;
+
+
+Komande za dump
+PGPASSWORD=timperia pg_dump -h localhost -p 5432 -U root -d test_db -n test_schema --exclude-table="test_schema.*" >> valjda_je_backup.sql;
+PGPASSWORD=timperia pg_dump -h localhost -p 5432 -U root -d test_db -n test_schema -t 'test_schema."sistemska"' -t 'test_schema."sistemska_druga"' --column-inserts --attribute-inserts >> valjda_je_backup.sql;
+
+komande za restore baze
+psql -h localhost -p 5432 -U root -d za_brisanje -f  samo_sistemske.sql
+
+Napomena postoji restore postgresql baze uz pomoc komande pg_restore
+pg_restore komanda zahteva skriptu koja ima COPY commande
+BACKUP koji je KREIRAN UZ POMOC NAVEDENIH KOMANDI ZA DUMP NE MOZE da restore bazu uz pomocu pg_restore.
