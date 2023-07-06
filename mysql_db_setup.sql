@@ -1,10 +1,23 @@
 DROP SCHEMA IF EXISTS test_schema;
 CREATE SCHEMA test_schema;
 
+DROP TABLE IF EXISTS test_schema.migrations;
 DROP TABLE IF EXISTS test_schema.test_tabela;
 DROP TABLE IF EXISTS test_schema.test_tabela1;
 DROP TABLE IF EXISTS test_schema.sistemska;
 DROP TABLE IF EXISTS test_schema.sistemska_druga;
+
+create table test_schema.migrations
+(
+    id             int auto_increment,
+    migration_name varchar(255)                        not null,
+    executed_at    timestamp default current_timestamp not null,
+    constraint migrations_pk
+        primary key (id)
+);
+
+
+
 
 CREATE TABLE test_schema.test_tabela (
                                          id INT AUTO_INCREMENT PRIMARY KEY,

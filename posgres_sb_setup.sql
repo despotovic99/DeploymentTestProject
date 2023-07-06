@@ -1,10 +1,20 @@
-DROP SCHEMA IF EXISTS test_schema;
+DROP SCHEMA IF EXISTS test_schema CASCADE ;
 CREATE SCHEMA test_schema;
 
+DROP TABLE IF EXISTS test_schema.migrations;
 DROP TABLE IF EXISTS test_schema.test_tabela;
 DROP TABLE IF EXISTS test_schema.test_tabela1;
 DROP TABLE IF EXISTS test_schema.sistemska;
 DROP TABLE IF EXISTS test_schema.sistemska_druga;
+
+create table if not exists test_schema.migrations
+(
+    id        integer           not null
+        constraint migrations_pk
+            primary key,
+    migration_name varchar(255)                        not null,
+    executed_at    timestamp default current_timestamp not null
+);
 
 CREATE TABLE test_schema.test_tabela (
                                          id SERIAL PRIMARY KEY,
