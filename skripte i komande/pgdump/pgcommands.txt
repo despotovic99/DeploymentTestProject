@@ -4,8 +4,6 @@ DROP baze: DROP DATABASE IF EXISTS test_baza_za_brisanje WITH (FORCE);
 
 Izlistaj sve baze: SELECT datname FROM pg_database WHERE datistemplate = false;
 
-random izmena
-
 Komande za dump
 PGPASSWORD=timperia pg_dump -h localhost -p 5432 -U root -d test_db -n test_schema --exclude-table="test_schema.*" >> valjda_je_backup.sql;
 PGPASSWORD=timperia pg_dump -h localhost -p 5432 -U root -d test_db -n test_schema -t 'test_schema."sistemska"' -t 'test_schema."sistemska_druga"' --column-inserts --attribute-inserts >> valjda_je_backup.sql;
