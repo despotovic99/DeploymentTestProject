@@ -2,6 +2,18 @@ version: '3.9'
 
 services:
 
+  ubuntu-server:
+    container_name: deployment-server
+    build:
+      context: '.'
+    ports:
+      - "2222:22"
+    networks:
+      - deployment-network
+    volumes:
+      - ./server:/test
+
+
   mysql-db:
     image: mariadb:10.3
     container_name: deployment-mysql
