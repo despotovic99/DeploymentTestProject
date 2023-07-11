@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 
 # Install rsync
-RUN apt-get update && apt-get install rsync
+RUN apt-get update && apt-get install rsync | echo "y"
 
 # Install SSH server
 RUN apt-get install -y openssh-server
