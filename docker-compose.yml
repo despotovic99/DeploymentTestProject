@@ -24,52 +24,42 @@ services:
     volumes:
       - ./server-dva:/test
 
-  test-ubuntu-19:
-    image: ubuntu:19.10
-    container_name: deployment-ubuntu-19
-    ports:
-      - "2224:22"
-    networks:
-      - deployment-network
-    volumes:
-      - ./ubuntu19:/test
-
-  mysql-db:
-    image: mariadb:10.3
-    container_name: deployment-mysql
-    ports:
-      - "3308:3306"
-    volumes:
-      - mysql_db:/var/lib/mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: 'timperia'
-      #      MYSQL_DATABASE: ${MYSQL_DATABASE}
-      MYSQL_USER: 'admin'
-      MYSQL_PASSWORD: 'timperia'
-    networks:
-      - deployment-network
-
-  postgres-db:
-    image: postgres:14
-    restart: always
-    container_name: deployment-postgres
-    ports:
-      - "5432:5432"
-    environment:
-      POSTGRES_USER: root
-      POSTGRES_PASSWORD: timperia
-    #      POSTGRES_DB: your-database
-    volumes:
-      - postgres_db:/var/lib/postgresql/data
-    networks:
-      - deployment-network
-
+#  mysql-db:
+#    image: mariadb:10.3
+#    container_name: deployment-mysql
+#    ports:
+#      - "3308:3306"
+#    volumes:
+#      - mysql_db:/var/lib/mysql
+#    environment:
+#      MYSQL_ROOT_PASSWORD: 'timperia'
+#      #      MYSQL_DATABASE: ${MYSQL_DATABASE}
+#      MYSQL_USER: 'admin'
+#      MYSQL_PASSWORD: 'timperia'
+#    networks:
+#      - deployment-network
+#
+#  postgres-db:
+#    image: postgres:14
+#    restart: always
+#    container_name: deployment-postgres
+#    ports:
+#      - "5432:5432"
+#    environment:
+#      POSTGRES_USER: root
+#      POSTGRES_PASSWORD: timperia
+#    #      POSTGRES_DB: your-database
+#    volumes:
+#      - postgres_db:/var/lib/postgresql/data
+#    networks:
+#      - deployment-network
+#
 networks:
   deployment-network:
     driver: bridge
 
-volumes:
-  postgres_db:
-    driver: local
-  mysql_db:
-    driver: local
+#volumes:
+#  postgres_db:
+#    driver: local
+#  mysql_db:
+#    driver: local
